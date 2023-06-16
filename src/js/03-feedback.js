@@ -20,9 +20,6 @@ DataEmail.addEventListener("blur", (dataEmail) => {
     const newdataEmail = dataEmail.currentTarget.value;
     outEmail = newdataEmail;
     localStorage.setItem("feedback-form-state-email", outEmail);
-
-
-    
     
 });
 
@@ -42,7 +39,11 @@ window.addEventListener("load", function(event){
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log(localStorage.getItem("feedback-form-state-email") , "-" , localStorage.getItem("feedback-form-state-text") );
+    const json = {
+        email : localStorage.getItem("feedback-form-state-email"),
+        text : localStorage.getItem("feedback-form-state-text")
+    };
+    console.log(json);
     document.getElementById("inputEmail").value =  "";
     document.getElementById("inputText").value =  "";
     localStorage.clear();
